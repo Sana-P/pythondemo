@@ -1,0 +1,49 @@
+# 1. Add your project files into this folder (if not already present)
+#    Right now "git learning" looks empty, so copy your code/files here first.
+
+# 2. Stage all files
+git add .
+
+# 3. Make the first commit
+git commit -m "Initial commit"
+
+# 4. Verify you now have a commit
+git log --oneline --decorate --graph --all
+
+# 5. Check branches
+git branch
+# You should see: prod, dev, qa, uat (all valid now)
+
+# 6. Switch to dev
+git checkout dev
+
+# 7. Create user-story branch from dev
+git checkout -b user-story-1
+
+# 8. Create task branches
+git checkout -b user-story-1-task-1
+# (make changes, then)
+git add .
+git commit -m "Task 1 complete"
+
+git checkout user-story-1
+git checkout -b user-story-1-task-2
+# (make changes, then)
+git add .
+git commit -m "Task 2 complete"
+
+git checkout user-story-1
+git checkout -b user-story-1-task-3
+# (make changes, then)
+git add .
+git commit -m "Task 3 complete"
+
+# 9. Merge tasks back into user-story-1
+git checkout user-story-1
+git merge user-story-1-task-1
+git merge user-story-1-task-2
+git merge user-story-1-task-3
+
+# 10. Merge user-story-1 into dev
+git checkout dev
+git merge user-story-1
